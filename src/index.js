@@ -3,6 +3,23 @@ function eval() {
     return;
 }
 
+/*
+
+Гипотезы:
+проверяем кол-во скобок, если не парное - то отлуп
+
+https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/TypeError
+
+
+
+
+
+*/
+
+
+
+
+
 function expressionCalculator(expr) {
     a = expr[0];
     b = expr[2];
