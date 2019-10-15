@@ -21,46 +21,14 @@ https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/St
 
 function expressionCalculator(expr) { //на вход поступает строка String
 
-    try {
-        if (expr != 1) throw new TypeError("Division by zero.");
-          } catch (error) {
-          return error;
-      }
-
-
-
 
 var bracketMask = /\(|\)/g; //создаём маску
 var found = expr.match(bracketMask); //ищем по маске
 
 
+if (!found) {
 
-if (found.length % 2) {  //проверка количества
-        console.log(found.length + " нечетное, ошибка");
-} else {
-    console.log(found.length + " чётное, проверяем дальше");
-
-}  
-
- 
-
-
-
-Array.isArray(array);
-
-
-console.log(found.length);
-
-var newArray = Array.from(found);
-console.log(newArray.length);
-
-
-
-//console.log(typeof array);
-//console.log(array.length);
-console.log(found);
-
-let array = Array.from(expr);  //создаём массив из входящей строки
+    var array = Array.from(expr);  //создаём массив из входящей строки
 
 
     //console.log(Array.isArray(array)); //проверяем, что у нас массив
@@ -69,10 +37,14 @@ let array = Array.from(expr);  //создаём массив из входяще
     
 
 
-    a = expr[0];
-    b = expr[2];
+  var a = expr[0];
+  var b = expr[2];
 
     console.log("1y=" + expr[0] + " 2y=" + expr[1] + " 3y= " + expr[2] + " 4y= " + expr[3] + " 5y= " + expr[4]);
+
+    if (expr[4] == 0) {throw TypeError("TypeError: Division by zero.");
+}
+
 
     if (typeof expr[1] == "string") {
 // если вторым элементом знак мат. действия, то подставляем его между первым и третим элементом 
@@ -82,11 +54,7 @@ let array = Array.from(expr);  //создаём массив из входяще
             case "-":
                 return a - b;
             case "/":
-                if (expr[4] == "0") { 
-
-                    console.log(123456789);
-                    //var zero = "TypeError: Devision by zero.";
-                    //return zero;
+                if (expr != 1) {throw TypeError("TypeError: Division by zero.");
                 }
                 else {
                 return a / b;}
@@ -96,6 +64,75 @@ let array = Array.from(expr);  //создаём массив из входяще
     }
 }
 
+
+
+
+
+if (found.length % 2) {  //проверка количества
+        console.log(found.length + " нечетное, ошибка");
+
+        throw TypeError("ExpressionError: Brackets must be paired");
+
+} else if (found.length % 2 == 0) {
+    console.log(found.length + " чётное, проверяем дальше");
+} else {
+  
+
+ 
+
+/*
+
+Array.isArray(array);
+
+
+console.log(found.length);
+
+var newArray = Array.from(found);
+console.log(newArray.length);
+
+*/
+
+//console.log(typeof array);
+//console.log(array.length);
+console.log(found);
+
+var array = Array.from(expr);  //создаём массив из входящей строки
+
+
+    //console.log(Array.isArray(array)); //проверяем, что у нас массив
+
+    //console.log(typeof expr);
+    
+
+
+  var a = expr[0];
+  var b = expr[2];
+
+    console.log("1y=" + expr[0] + " 2y=" + expr[1] + " 3y= " + expr[2] + " 4y= " + expr[3] + " 5y= " + expr[4]);
+
+    if (expr[4] == 0) {throw TypeError("TypeError: Division by zero.");
+}
+
+
+    if (typeof expr[1] == "string") {
+// если вторым элементом знак мат. действия, то подставляем его между первым и третим элементом 
+        switch (expr[1]) {
+            case "+":
+                return a + b;
+            case "-":
+                return a - b;
+            case "/":
+                if (expr != 1) {throw TypeError("TypeError: Division by zero.");
+                }
+                else {
+                return a / b;}
+            case "*":
+                return a * b;
+        }
+    }
+}
+
+}
 
 
 
