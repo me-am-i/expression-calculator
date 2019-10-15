@@ -21,6 +21,15 @@ https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/St
 
 function expressionCalculator(expr) { //на вход поступает строка String
 
+    try {
+        if (expr != 1) throw new TypeError("Division by zero.");
+          } catch (error) {
+          return error;
+      }
+
+
+
+
 var bracketMask = /\(|\)/g; //создаём маску
 var found = expr.match(bracketMask); //ищем по маске
 
@@ -30,7 +39,10 @@ if (found.length % 2) {  //проверка количества
         console.log(found.length + " нечетное, ошибка");
 } else {
     console.log(found.length + " чётное, проверяем дальше");
- }
+
+}  
+
+ 
 
 
 
@@ -70,8 +82,11 @@ let array = Array.from(expr);  //создаём массив из входяще
             case "-":
                 return a - b;
             case "/":
-                if (expr[4] == "0") { var zero = "TypeError: Devision by zero.";
-                    return zero;
+                if (expr[4] == "0") { 
+
+                    console.log(123456789);
+                    //var zero = "TypeError: Devision by zero.";
+                    //return zero;
                 }
                 else {
                 return a / b;}
@@ -81,6 +96,18 @@ let array = Array.from(expr);  //создаём массив из входяще
     }
 }
 
+
+
+
+
 module.exports = {
     expressionCalculator
 }
+
+/*
+try {
+    if (expr == "1 / 0") throw new TypeError("Division by zero.");
+      } catch (error) {
+      return error;
+  }
+  */
